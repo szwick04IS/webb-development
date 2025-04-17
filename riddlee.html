@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Riddle Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f8ff;
+      padding: 2rem;
+      text-align: center;
+    }
+    #riddle-box {
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      max-width: 500px;
+      margin: auto;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+    #answer {
+      color: green;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+    nav a {
+      display: inline-block;
+      margin-top: 2rem;
+      text-decoration: none;
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+  <div id="riddle-box">
+    <h1>🧠 Riddle Generator</h1>
+    <p id="riddle">Click the button to get a riddle!</p>
+    <p id="answer"></p>
+    <button onclick="newRiddle()">Show Me a Riddle</button>
+    <br>
+    <nav><a href="scratch.html">Back to Fantasy Football</a></nav>
+  </div>
+
+  <script>
+    const riddles = [
+      { q: "What has to be broken before you can use it?", a: "An egg." },
+      { q: "I’m tall when I’m young, and I’m short when I’m old. What am I?", a: "A candle." },
+      { q: "What month of the year has 28 days?", a: "All of them." },
+      { q: "What is full of holes but still holds water?", a: "A sponge." },
+      { q: "What question can you never answer yes to?", a: "Are you asleep yet?" }
+    ];
+
+    function newRiddle() {
+      const rand = Math.floor(Math.random() * riddles.length);
+      document.getElementById('riddle').textContent = riddles[rand].q;
+      document.getElementById('answer').textContent = riddles[rand].a;
+    }
+  </script>
+</body>
+</html>
